@@ -5,8 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClickSpeedTest"
         mc:Ignorable="d"
-        Title="MainWindow" Height="900" Width="1600">
+        Title="MainWindow" Height="900" Width="1400">
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#F0EB36" Offset="0.0"/>
+                <GradientStop Color="#73C869" Offset="0.4"/>
+                <GradientStop Color="#1E91A5" Offset="1.0"/>
+            </LinearGradientBrush>
+            
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="4*"/>
@@ -16,9 +24,9 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        
+
         <TextBox Grid.Row="1" />
-        <Border Grid.Row="2">
+        <Border Grid.Row="2" >
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
