@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow"
         Height="900"
-        Width="1400">
+        Width="1400"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -15,7 +16,6 @@
                 <GradientStop Color="#73C869" Offset="0.4"/>
                 <GradientStop Color="#1E91A5" Offset="1.0"/>
             </LinearGradientBrush>
-
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
@@ -60,20 +60,104 @@
                             <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="1.7*"/>
                         </Grid.ColumnDefinitions>
-                        <Button Grid.Column="0" Content="`" Margin="2"/>
-                        <Button Grid.Column="1" Content="1" Margin="2"/>
-                        <Button Grid.Column="2" Content="2" Margin="2"/>
-                        <Button Grid.Column="3" Content="3" Margin="2"/>
-                        <Button Grid.Column="4" Content="4" Margin="2"/>
-                        <Button Grid.Column="5" Content="5" Margin="2"/>
-                        <Button Grid.Column="6" Content="6" Margin="2"/>
-                        <Button Grid.Column="7" Content="7" Margin="2"/>
-                        <Button Grid.Column="8" Content="8" Margin="2"/>
-                        <Button Grid.Column="9" Content="9" Margin="2"/>
-                        <Button Grid.Column="10" Content="0" Margin="2"/>
-                        <Button Grid.Column="11" Content="-" Margin="2"/>
-                        <Button Grid.Column="12" Content="=" Margin="2"/>
-                        <Button Grid.Column="13" Content="Backspace" Margin="2"/>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF2AE682" Grid.Column="0" Content="`" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF2AE682" Grid.Column="1" Content="1" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF2AE682" Grid.Column="2" Content="2" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF30D7FB" Grid.Column="3" Content="3" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FFF978B0" Grid.Column="4" Content="4" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FFFDA03F" Grid.Column="5" Content="5" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FFFDA03F" Grid.Column="6" Content="6" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FFFDE53B" Grid.Column="7" Content="7" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FFF978B0" Grid.Column="8" Content="8" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF30D7FB" Grid.Column="9" Content="9" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF2AE682" Grid.Column="10" Content="0" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF2AE682" Grid.Column="11" Content="-" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF2AE682" Grid.Column="12" Content="=" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF9AD3FA" Grid.Column="13" Content="Backspace" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
                     </Grid>
                 </Border>
                 <Border Grid.Row="2" Grid.Column="1">
@@ -94,20 +178,104 @@
                             <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="1.3*"/>
                         </Grid.ColumnDefinitions>
-                        <Button Grid.Column="0" Content="Tab" Margin="2"/>
-                        <Button Grid.Column="1" Content="Q" Margin="2"/>
-                        <Button Grid.Column="2" Content="W" Margin="2"/>
-                        <Button Grid.Column="3" Content="E" Margin="2"/>
-                        <Button Grid.Column="4" Content="R" Margin="2"/>
-                        <Button Grid.Column="5" Content="T" Margin="2"/>
-                        <Button Grid.Column="6" Content="Y" Margin="2"/>
-                        <Button Grid.Column="7" Content="U" Margin="2"/>
-                        <Button Grid.Column="8" Content="I" Margin="2"/>
-                        <Button Grid.Column="9" Content="O" Margin="2"/>
-                        <Button Grid.Column="10" Content="P" Margin="2"/>
-                        <Button Grid.Column="11" Content="[" Margin="2"/>
-                        <Button Grid.Column="12" Content="]" Margin="2"/>
-                        <Button Grid.Column="13" Content="/" Margin="2"/>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF9AD3FA" Grid.Column="0" Content="Tab" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF2AE682" Grid.Column="1" Content="q" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF30D7FB" Grid.Column="2" Content="w" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FFF978B0" Grid.Column="3" Content="e" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FFFDA03F" Grid.Column="4" Content="r" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FFFDA03F" Grid.Column="5" Content="t" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FFFDE53B" Grid.Column="6" Content="y" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FFFDE53B" Grid.Column="7" Content="u" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FFF978B0" Grid.Column="8" Content="i" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF30D7FB" Grid.Column="9" Content="o" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF2AE682" Grid.Column="10" Content="p" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF2AE682" Grid.Column="11" Content="[" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF2AE682" Grid.Column="12" Content="]" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF9AD3FA" Grid.Column="13" Content="/" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
                     </Grid>
                 </Border>
                 <Border Grid.Row="3" Grid.Column="1">
@@ -127,19 +295,97 @@
                             <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="1.6*"/>
                         </Grid.ColumnDefinitions>
-                        <Button Grid.Column="0" Content="Caps Lock" Margin="2"/>
-                        <Button Grid.Column="1" Content="A" Margin="2"/>
-                        <Button Grid.Column="2" Content="S" Margin="2"/>
-                        <Button Grid.Column="3" Content="D" Margin="2"/>
-                        <Button Grid.Column="4" Content="F" Margin="2"/>
-                        <Button Grid.Column="5" Content="G" Margin="2"/>
-                        <Button Grid.Column="6" Content="H" Margin="2"/>
-                        <Button Grid.Column="7" Content="J" Margin="2"/>
-                        <Button Grid.Column="8" Content="K" Margin="2"/>
-                        <Button Grid.Column="9" Content="L" Margin="2"/>
-                        <Button Grid.Column="10" Content=";" Margin="2"/>
-                        <Button Grid.Column="11" Content="'" Margin="2"/>
-                        <Button Grid.Column="12" Content="Enter" Margin="2"/>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF9AD3FA" Grid.Column="0" Content="Caps Lock" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF2AE682" Grid.Column="1" Content="a" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF30D7FB" Grid.Column="2" Content="s" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FFF978B0" Grid.Column="3" Content="d" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FFFDA03F" Grid.Column="4" Content="f" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FFFDA03F" Grid.Column="5" Content="g" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FFFDE53B" Grid.Column="6" Content="h" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FFFDE53B" Grid.Column="7" Content="j" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FFF978B0" Grid.Column="8" Content="k" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF30D7FB" Grid.Column="9" Content="l" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF2AE682" Grid.Column="10" Content=";" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF2AE682" Grid.Column="11" Content="'" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF9AD3FA" Grid.Column="12" Content="Enter" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
                     </Grid>
                 </Border>
                 <Border Grid.Row="4" Grid.Column="1">
@@ -158,18 +404,90 @@
                             <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="1.7*"/>
                         </Grid.ColumnDefinitions>
-                        <Button Grid.Column="0" Content="Shift" Margin="2"/>
-                        <Button Grid.Column="1" Content="Z" Margin="2"/>
-                        <Button Grid.Column="2" Content="X" Margin="2"/>
-                        <Button Grid.Column="3" Content="C" Margin="2"/>
-                        <Button Grid.Column="4" Content="V" Margin="2"/>
-                        <Button Grid.Column="5" Content="B" Margin="2"/>
-                        <Button Grid.Column="6" Content="N" Margin="2"/>
-                        <Button Grid.Column="7" Content="M" Margin="2"/>
-                        <Button Grid.Column="8" Content="," Margin="2"/>
-                        <Button Grid.Column="9" Content="." Margin="2"/>
-                        <Button Grid.Column="10" Content="/" Margin="2"/>
-                        <Button Grid.Column="11" Content="Shift" Margin="2"/>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF9AD3FA" Grid.Column="0" Content="Shift" Margin="2" >
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF2AE682" Grid.Column="1" Content="z" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF30D7FB" Grid.Column="2" Content="x" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FFF978B0" Grid.Column="3" Content="c" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FFFDA03F" Grid.Column="4" Content="v" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FFFDA03F" Grid.Column="5" Content="b" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FFFDE53B" Grid.Column="6" Content="n" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FFFDE53B" Grid.Column="7" Content="m" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FFF978B0" Grid.Column="8" Content="," Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF30D7FB" Grid.Column="9" Content="." Margin="2" >
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF2AE682" Grid.Column="10" Content="/" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF9AD3FA" Grid.Column="11" Content="Shift" Margin="2">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
                     </Grid>
                 </Border>
                 <Border Grid.Row="5" Grid.Column="1">
@@ -183,19 +501,75 @@
                             <ColumnDefinition Width="1.5*"/>
                             <ColumnDefinition Width="1.5*"/>
                         </Grid.ColumnDefinitions>
-                        <Button Grid.Column="0" Content="Ctrl" Margin="2"/>
-                        <Button Grid.Column="1" Content="Win" Margin="2"/>
-                        <Button Grid.Column="2" Content="Alt" Margin="2"/>
-                        <Button Grid.Column="3" Content="Space" Margin="2"/>
-                        <Button Grid.Column="4" Content="Alt" Margin="2"/>
-                        <Button Grid.Column="5" Content="Win" Margin="2"/>
-                        <Button Grid.Column="6" Content="Ctrl" Margin="2" />
+                        <Button FontSize="30" FontFamily="Arial" Grid.Column="0" Content="Ctrl" Margin="2" Background="#FF9AD3FA" >
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF9AD3FA" Grid.Column="1" Content="Win" Margin="2" >
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF9AD3FA" Grid.Column="2" Content="Alt" Margin="2" >
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF9AD3FA" Grid.Column="3" Content="Space" Margin="2" >
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF9AD3FA" Grid.Column="4" Content="Alt" Margin="2" >
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF9AD3FA" Grid.Column="5" Content="Win" Margin="2" >
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Arial" Background="#FF9AD3FA" Grid.Column="6" Content="Ctrl" Margin="2"  >
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
                     </Grid>
                 </Border>
             </Grid>
         </Border>
-        <TextBox Grid.Row="1" />
-        
+        <TextBox
+            Grid.Row="1"
+            Margin="6"
+            BorderThickness="4">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="20" />
+                </Style>
+            </TextBox.Resources>
+            <TextBox.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF7A5AF6"/>
+                    <GradientStop Color="#FF6473F6" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBox.BorderBrush>
+        </TextBox>
     </Grid>
 
 </Window>
