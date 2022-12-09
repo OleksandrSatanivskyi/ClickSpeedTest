@@ -26,7 +26,132 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <Border Grid.Row="2" Grid.RowSpan="23" CornerRadius="15" BorderThickness="4" BorderBrush="White" Margin="5">
+        <Border Grid.Row="0">
+            
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Border>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <Button FontSize="30" FontFamily="Bahnschrift SemiBold" Width="200" Background="#FF2AE682" Grid.Row="0" Content="Start" Margin="10" HorizontalAlignment="Left">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button FontSize="30" FontFamily="Bahnschrift SemiBold" Width="200" Background="#FF2AAEE6" Grid.Row="1" Content="Change mode" Margin="10" HorizontalAlignment="Left">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </Grid>
+                </Border>
+                <Border Grid.Column="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Content="Mode:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,0" FontSize="45" FontFamily="Bahnschrift SemiBold"/>
+                        <Label Grid.Column="1" Content="Text" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" FontSize="45" FontFamily="Bahnschrift SemiBold"/>
+
+                    </Grid>
+                </Border>
+                <Border
+                    Background="White"
+                    Grid.Column="2"
+                    Margin="15"
+                    BorderThickness="3">
+                    <Border.BorderBrush>
+                        <LinearGradientBrush EndPoint="0.5 ,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF451CE6"/>
+                            <GradientStop Color="#FF6473F6" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.BorderBrush>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <Label 
+                            Content="Speed" 
+                            Grid.Column="0" 
+                            Grid.Row="0"
+                            HorizontalAlignment="Right"
+                            Margin="0,0,10,0"
+                            FontSize="40" 
+                            FontFamily="Bahnschrift SemiBold" 
+                            Foreground="#FF0D63AD"/>
+                        <Label 
+                            Content="Precision" 
+                            Grid.Column="0" 
+                            Grid.Row="1"
+                            HorizontalAlignment="Right"
+                            Margin="0,0,10,0"
+                            FontSize="40" 
+                            FontFamily="Bahnschrift SemiBold" 
+                            Foreground="#FF0D63AD"/>
+                        <Label Name="lbSpeed"
+                            Content="100%" 
+                            Grid.Column="1" 
+                            Grid.Row="0"
+                            HorizontalAlignment="Left"
+                            Margin="10,0,0,0"
+                            FontSize="40" 
+                            FontFamily="Bahnschrift SemiBold" 
+                            Foreground="Black"/>
+                        <Label Name="lbPrecision"
+                            Content="0%" 
+                            Grid.Column="1" 
+                            Grid.Row="1"
+                            HorizontalAlignment="Left"
+                            Margin="10,0,0,0"
+                            FontSize="40" 
+                            FontFamily="Bahnschrift SemiBold" 
+                            Foreground="Black"/>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+        <TextBox
+            Grid.Row="1"
+            Margin="6"
+            BorderThickness="4"
+            FontSize="28">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="20" />
+                </Style>
+            </TextBox.Resources>
+            <TextBox.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF451CE6"/>
+                    <GradientStop Color="#FF6473F6" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBox.BorderBrush>
+        </TextBox>
+        <Border Name="Keyboard"
+                Grid.Row="2"
+                Grid.RowSpan="23"
+                CornerRadius="15"
+                BorderThickness="4"
+                BorderBrush="White"
+                Margin="5">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.005*"/>
@@ -554,22 +679,7 @@
                 </Border>
             </Grid>
         </Border>
-        <TextBox
-            Grid.Row="1"
-            Margin="6"
-            BorderThickness="4">
-            <TextBox.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="20" />
-                </Style>
-            </TextBox.Resources>
-            <TextBox.BorderBrush>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF7A5AF6"/>
-                    <GradientStop Color="#FF6473F6" Offset="1"/>
-                </LinearGradientBrush>
-            </TextBox.BorderBrush>
-        </TextBox>
+        
     </Grid>
 
 </Window>
