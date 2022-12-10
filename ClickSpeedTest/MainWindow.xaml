@@ -8,8 +8,14 @@
         Title="MainWindow"
         Height="900"
         Width="1400"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        PreviewTextInput="Window_PreviewTextInput">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="38*"/>
+            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition Width="89*"/>
+        </Grid.ColumnDefinitions>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                 <GradientStop Color="#F0EB36" Offset="0.0"/>
@@ -26,8 +32,8 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <Border Grid.Row="0">
-            
+        <Border Grid.Row="0" Margin="0,0,0,321" Grid.RowSpan="2" Grid.ColumnSpan="3">
+
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.5*"/>
@@ -40,7 +46,7 @@
                             <RowDefinition Height="1*"/>
                             <RowDefinition Height="1*"/>
                         </Grid.RowDefinitions>
-                        <Button FontSize="30" FontFamily="Bahnschrift SemiBold" Width="200" Background="#FF2AE682" Grid.Row="0" Content="Start" Margin="10" HorizontalAlignment="Left">
+                        <Button FontSize="30" Name="btStart" Click="Button_Click" FontFamily="Bahnschrift SemiBold" Width="200" Background="#FF2AE682" Grid.Row="0" Content="Start" Margin="10" HorizontalAlignment="Left">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="10"/>
@@ -128,11 +134,13 @@
                 </Border>
             </Grid>
         </Border>
-        <TextBox
-            Grid.Row="1"
-            Margin="6"
-            BorderThickness="4"
-            FontSize="28">
+        <TextBox Name="tbString"
+                 TextWrapping="Wrap"
+                 IsReadOnly="True"
+                 Grid.Row="1"
+                 Margin="6,6,6,6"
+                 BorderThickness="4"
+                 FontSize="28" Grid.ColumnSpan="3">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="20" />
@@ -147,11 +155,11 @@
         </TextBox>
         <Border Name="Keyboard"
                 Grid.Row="2"
-                Grid.RowSpan="23"
+                Grid.RowSpan="5"
                 CornerRadius="15"
                 BorderThickness="4"
                 BorderBrush="White"
-                Margin="5">
+                Margin="5,5,5,5" Grid.ColumnSpan="3">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.005*"/>
@@ -679,7 +687,7 @@
                 </Border>
             </Grid>
         </Border>
-        
+
     </Grid>
 
 </Window>
