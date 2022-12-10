@@ -21,6 +21,7 @@ namespace ClickSpeedTest
     /// </summary>
     public partial class MainWindow : Window
     {
+        private bool TestIsStarted => btStart.Content.ToString() == "Start";
         public MainWindow()
         {
             InitializeComponent();
@@ -33,18 +34,35 @@ namespace ClickSpeedTest
                 tbString.Text = tbString.Text.Remove(0,1);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void DisplayCorrectButton()
         {
-            if (btStart.Content == "Start")
+            var buttons = 
+            foreach (Button button in FirstKeyboardLine)
+            {
+                if (button.Content == tbString.Text[0].ToString())
+                {
+                    button.Background = Brushes.White;
+                }
+            }
+        }
+
+        private void btStart_Click(object sender, RoutedEventArgs e)
+        {
+            if (TestIsStarted == true)
             {
                 btStart.Content = "Finish";
                 btStart.Background = Brushes.Red;
             }
-            else if (btStart.Content == "Finish")
+            else if(!TestIsStarted)
             {
-                btStart.Content = "Finish";
-                btStart.Background = Brushes.Red;
+                btStart.Content = "Start";
+                btStart.Background = Brushes.Green;
             }
+        }
+
+        private void tbString_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            DisplayCorrectButton();
         }
     }
 }

@@ -46,7 +46,7 @@
                             <RowDefinition Height="1*"/>
                             <RowDefinition Height="1*"/>
                         </Grid.RowDefinitions>
-                        <Button FontSize="30" Name="btStart" Click="Button_Click" FontFamily="Bahnschrift SemiBold" Width="200" Background="#FF2AE682" Grid.Row="0" Content="Start" Margin="10" HorizontalAlignment="Left">
+                        <Button FontSize="30" Name="btStart" Click="btStart_Click" FontFamily="Bahnschrift SemiBold" Width="200" Background="Green" Grid.Row="0" Content="Start" Margin="10" HorizontalAlignment="Left">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="10"/>
@@ -113,7 +113,7 @@
                             FontFamily="Bahnschrift SemiBold" 
                             Foreground="#FF0D63AD"/>
                         <Label Name="lbSpeed"
-                            Content="100%" 
+                            Content="0" 
                             Grid.Column="1" 
                             Grid.Row="0"
                             HorizontalAlignment="Left"
@@ -121,8 +121,18 @@
                             FontSize="40" 
                             FontFamily="Bahnschrift SemiBold" 
                             Foreground="Black"/>
+                        <Label
+                            Content="chars/min" 
+                            Grid.Column="1" 
+                            Grid.Row="0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Margin="10,0,0,0"
+                            FontSize="25" 
+                            FontFamily="Bahnschrift SemiBold" 
+                            Foreground="Black"/>
                         <Label Name="lbPrecision"
-                            Content="0%" 
+                            Content="100%" 
                             Grid.Column="1" 
                             Grid.Row="1"
                             HorizontalAlignment="Left"
@@ -140,7 +150,9 @@
                  Grid.Row="1"
                  Margin="6,6,6,6"
                  BorderThickness="4"
-                 FontSize="28" Grid.ColumnSpan="3">
+                 FontSize="28"
+                 Grid.ColumnSpan="3"
+                 TextChanged="tbString_TextChanged">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="20" />
@@ -153,14 +165,14 @@
                 </LinearGradientBrush>
             </TextBox.BorderBrush>
         </TextBox>
-        <Border Name="Keyboard"
+        <Border 
                 Grid.Row="2"
                 Grid.RowSpan="5"
                 CornerRadius="15"
                 BorderThickness="4"
                 BorderBrush="White"
                 Margin="5,5,5,5" Grid.ColumnSpan="3">
-            <Grid>
+            <Grid Name="Keyboard">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.005*"/>
                     <ColumnDefinition Width="1*"/>
@@ -624,7 +636,7 @@
                     </Grid>
                 </Border>
                 <Border Grid.Row="5" Grid.Column="1">
-                    <Grid>
+                    <Grid Name="FirstKeyboardLine">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1.5*"/>
                             <ColumnDefinition Width="1.5*"/>
