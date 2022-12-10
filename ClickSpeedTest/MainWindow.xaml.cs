@@ -22,6 +22,8 @@ namespace ClickSpeedTest
     public partial class MainWindow : Window
     {
         private bool TestIsStarted => btStart.Content.ToString() == "Start";
+        private Button ChangedButton { get; set; }
+        private Brush ChangedButtonStartColor { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -36,12 +38,30 @@ namespace ClickSpeedTest
 
         private void DisplayCorrectButton()
         {
-            var buttons = 
-            foreach (Button button in FirstKeyboardLine)
+            SetStartColorInClickedButton();
+
+            SetWhiteBackgroungInCorrectButton();
+        }
+
+        private void SetStartColorInClickedButton()
+        {
+            if(ChangedButton != null)
+            ChangedButton.Background = ChangedButtonStartColor;
+        }
+
+        private void SetWhiteBackgroungInCorrectButton()
+        {
+            foreach (Grid grid in Keyboard.Children)
             {
-                if (button.Content == tbString.Text[0].ToString())
+                foreach (Button button in grid.Children)
                 {
-                    button.Background = Brushes.White;
+                    if (tbString.Text[0].ToString() == button.Content.ToString())
+                    {
+                        ChangedButtonStartColor = button.Background;
+                        ChangedButton = button;
+                        button.Background = Brushes.White;
+                        return;
+                    }
                 }
             }
         }

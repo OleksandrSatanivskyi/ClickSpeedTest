@@ -187,8 +187,8 @@
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="0.03*"/>
                 </Grid.RowDefinitions>
-                <Border Grid.Row="1" Grid.Column="1">
-                    <Grid>
+                <!--<Border Grid.Row="1" Grid.Column="1">-->
+                <Grid Grid.Row="1" Grid.Column="1">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="1*"/>
@@ -304,9 +304,9 @@
                             </Button.Resources>
                         </Button>
                     </Grid>
-                </Border>
-                <Border Grid.Row="2" Grid.Column="1">
-                    <Grid>
+                <!--</Border>-->
+                <!--<Border Grid.Row="2" Grid.Column="1">-->
+                <Grid Row="2" Grid.Column="1">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1.3*"/>
                             <ColumnDefinition Width="1*"/>
@@ -422,9 +422,9 @@
                             </Button.Resources>
                         </Button>
                     </Grid>
-                </Border>
-                <Border Grid.Row="3" Grid.Column="1">
-                    <Grid>
+                <!--</Border>-->
+                <!--<Border Grid.Row="3" Grid.Column="1">-->
+                <Grid Grid.Row="3" Grid.Column="1">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1.6*"/>
                             <ColumnDefinition Width="1*"/>
@@ -532,9 +532,9 @@
                             </Button.Resources>
                         </Button>
                     </Grid>
-                </Border>
-                <Border Grid.Row="4" Grid.Column="1">
-                    <Grid>
+                <!--</Border>-->
+                <!--<Border Grid.Row="4" Grid.Column="1">-->
+                <Grid Grid.Row="4" Grid.Column="1">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1.7*"/>
                             <ColumnDefinition Width="1*"/>
@@ -634,9 +634,9 @@
                             </Button.Resources>
                         </Button>
                     </Grid>
-                </Border>
-                <Border Grid.Row="5" Grid.Column="1">
-                    <Grid Name="FirstKeyboardLine">
+                <!--</Border>-->
+                <!--<Border Grid.Row="5" Grid.Column="1">-->
+                <Grid Name="FirstKeyboardLine" Grid.Row="5" Grid.Column="1">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1.5*"/>
                             <ColumnDefinition Width="1.5*"/>
@@ -696,7 +696,7 @@
                             </Button.Resources>
                         </Button>
                     </Grid>
-                </Border>
+                <!--</Border>-->
             </Grid>
         </Border>
 
