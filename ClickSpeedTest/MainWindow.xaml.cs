@@ -216,6 +216,7 @@ namespace ClickSpeedTest
                 MistakesCount = 0;
                 lbPrecision.Content = 100.ToString() + '%';
                 Timer.Stop();
+                new ResultWindow().ShowDialog();
             }
             else if(!TestIsStarted)
             {

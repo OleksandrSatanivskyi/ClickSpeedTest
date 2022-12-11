@@ -1,0 +1,43 @@
+﻿<Window x:Class="ClickSpeedTest.ResultWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClickSpeedTest"
+        mc:Ignorable="d"
+        Title="ResultWindow" Height="500" Width="500"
+        WindowStartupLocation="CenterScreen"
+        Background="#FF37B4D4">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <Label Name="lbResults"  Content="Results:" FontFamily="Bahnschrift SemiBold" FontSize="50" Margin="20"/>
+        <Border Background="White" Grid.Row="1" Margin="20" BorderBrush="Black" BorderThickness="4">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="1.3*"/>
+                </Grid.ColumnDefinitions>
+                <Label  Content="Speed:" FontFamily="Bahnschrift SemiBold" FontSize="50" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label Name="lbSpeed" Content="0" FontFamily="Bahnschrift SemiBold" FontSize="70" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                <Label Grid.Column="1" Content="chars/min" FontFamily="Bahnschrift SemiBold" FontSize="20" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            </Grid>
+            
+        </Border>
+        <Border Background="White" Grid.Row="2" Margin="20" BorderBrush="Black" BorderThickness="4">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="1.3*"/>
+                </Grid.ColumnDefinitions>
+                <Label  Content="Precision:" FontFamily="Bahnschrift SemiBold" FontSize="40" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label Content="100" FontFamily="Bahnschrift SemiBold" FontSize="60" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                <Label Grid.Column="1" Content="%" FontFamily="Bahnschrift SemiBold" FontSize="40" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            </Grid>
+
+        </Border>
+    </Grid>
+</Window>
