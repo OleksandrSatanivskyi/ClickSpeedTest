@@ -303,7 +303,7 @@
                                 </Style>
                             </Button.Resources>
                         </Button>
-                    </Grid>
+                </Grid>
                 <!--</Border>-->
                 <!--<Border Grid.Row="2" Grid.Column="1">-->
                 <Grid Row="2" Grid.Column="1">
@@ -549,7 +549,7 @@
                             <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="1.7*"/>
                         </Grid.ColumnDefinitions>
-                        <Button FontSize="30" FontFamily="Arial" Background="#FF9AD3FA" Grid.Column="0" Content="Shift" Margin="2" >
+                        <Button Name="btShift" FontSize="30" FontFamily="Arial" Background="#FF9AD3FA" Grid.Column="0" Content="Shift" Margin="2" >
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="10"/>
