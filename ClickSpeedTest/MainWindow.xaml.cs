@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace ClickSpeedTest
 {
@@ -21,12 +22,15 @@ namespace ClickSpeedTest
     /// </summary>
     public partial class MainWindow : Window
     {
+        private DispatcherTimer Timer { get; set; }
         private bool TestIsStarted => btStart.Content.ToString() != "Start";
         private Button ChangedButton { get; set; }
         private Brush ChangedButtonStartColor { get; set; }
         private Brush ShiftButtonStartColor { get; set; }
         private Dictionary<char, string> SpecialSymbols { get; set; }
         private int MistakesCount { get; set; }
+        private int EnteredSymbolsCount { get; set; }
+        private int Seconds { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -35,6 +39,10 @@ namespace ClickSpeedTest
             SpecialSymbols = new Dictionary<char, string>();
             AddSpecialSymbolsToCollection();
             MistakesCount = 0;
+            Timer = new DispatcherTimer();
+            Timer.Interval = TimeSpan.FromSeconds(1);
+            Timer.Tick += Timer_Tick;
+            EnteredSymbolsCount = 0;
         }
 
         private void Window_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -42,7 +50,11 @@ namespace ClickSpeedTest
             if (TestIsStarted)
             {
                 if (e.Text == tbString.Text[0].ToString())
+                {
                     tbString.Text = tbString.Text.Remove(0, 1);
+                    EnteredSymbolsCount++;
+                }
+                    
                 else
                 {
                     MistakesCount++;
@@ -203,12 +215,21 @@ namespace ClickSpeedTest
                 btStart.Background = Brushes.Green;
                 MistakesCount = 0;
                 lbPrecision.Content = 100.ToString() + '%';
+                Timer.Stop();
             }
             else if(!TestIsStarted)
             {
                 btStart.Content = "Finish";
-                btStart.Background = Brushes.Red;          
+                btStart.Background = Brushes.Red;
+                Timer.Start();
+                EnteredSymbolsCount = 0;
             }
+        }
+
+        private void Timer_Tick(object? sender, EventArgs e)
+        {
+           Seconds++;
+           lbSpeed.Content = (EnteredSymbolsCount / Seconds).ToString();
         }
 
         private void tbString_TextChanged(object sender, TextChangedEventArgs e)
