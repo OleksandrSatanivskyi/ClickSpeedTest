@@ -21,11 +21,12 @@ namespace ClickSpeedTest
     /// </summary>
     public partial class MainWindow : Window
     {
-        private bool TestIsStarted => btStart.Content.ToString() == "Start";
+        private bool TestIsStarted => btStart.Content.ToString() != "Start";
         private Button ChangedButton { get; set; }
         private Brush ChangedButtonStartColor { get; set; }
         private Brush ShiftButtonStartColor { get; set; }
         private Dictionary<char, string> SpecialSymbols { get; set; }
+        private int MistakesCount { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -33,12 +34,21 @@ namespace ClickSpeedTest
             tbString.Text = File.ReadAllText("C:\\Users\\Саша\\source\\repos\\ClickSpeedTest\\ClickSpeedTest\\Texts\\Hancock.txt");
             SpecialSymbols = new Dictionary<char, string>();
             AddSpecialSymbolsToCollection();
+            MistakesCount = 0;
         }
 
         private void Window_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (e.Text == tbString.Text[0].ToString())
-                tbString.Text = tbString.Text.Remove(0,1);
+            if (TestIsStarted)
+            {
+                if (e.Text == tbString.Text[0].ToString())
+                    tbString.Text = tbString.Text.Remove(0, 1);
+                else
+                {
+                    MistakesCount++;
+                    lbPrecision.Content = (Math.Round(100 - (double)((double)MistakesCount * (double)100 / (double)tbString.Text.Length), 2)).ToString() + '%';
+                }
+            }  
         }
 
         private void AddSpecialSymbolsToCollection()
@@ -68,7 +78,6 @@ namespace ClickSpeedTest
         private void DisplayCorrectButton()
         {
             SetStartColorInClickedButton();
-
             SetWhiteBackgroungInCorrectButton();
         }
 
@@ -185,36 +194,27 @@ namespace ClickSpeedTest
 
         private bool CurrentSymbolIsNumber() => (int)tbString.Text[0] >= 48 && (int)tbString.Text[0] <= 57;
 
-        /*else if (tbString.Text[0].ToString().ToLower() == button.Content.ToString())
-                    {
-                        btShift.Background = Brushes.White;
-                        ChangedButtonStartColor = button.Background;
-                        ChangedButton = button;
-                        button.Background = Brushes.White;
-                        return;
-                    }
-                    else
-                    {
-                        CheckSpecialSymbols();
-                    }*/
-
+ 
         private void btStart_Click(object sender, RoutedEventArgs e)
         {
-            if (TestIsStarted == true)
-            {
-                btStart.Content = "Finish";
-                btStart.Background = Brushes.Red;
-            }
-            else if(!TestIsStarted)
+            if (TestIsStarted)
             {
                 btStart.Content = "Start";
                 btStart.Background = Brushes.Green;
+                MistakesCount = 0;
+                lbPrecision.Content = 100.ToString() + '%';
+            }
+            else if(!TestIsStarted)
+            {
+                btStart.Content = "Finish";
+                btStart.Background = Brushes.Red;          
             }
         }
 
         private void tbString_TextChanged(object sender, TextChangedEventArgs e)
         {
             DisplayCorrectButton();
+            
         }
     }
 }
