@@ -238,5 +238,11 @@ namespace ClickSpeedTest
             DisplayCorrectButton();
             
         }
+
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Space)
+                MessageBox.Show("You are daun");
+        }
     }
 }
