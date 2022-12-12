@@ -35,7 +35,7 @@ namespace ClickSpeedTest
         {
             InitializeComponent();
             ShiftButtonStartColor = btShift.Background;
-            tbString.Text = File.ReadAllText("C:\\Users\\Саша\\source\\repos\\ClickSpeedTest\\ClickSpeedTest\\Texts\\Hancock.txt");
+            tbString.Text = "";
             SpecialSymbols = new Dictionary<char, string>();
             AddSpecialSymbolsToCollection();
             MistakesCount = 0;
@@ -43,7 +43,23 @@ namespace ClickSpeedTest
             Timer.Interval = TimeSpan.FromSeconds(1);
             Timer.Tick += Timer_Tick;
             EnteredSymbolsCount = 0;
+            ChangeCheckboxesEnabling();
         }
+
+        private void ChangeCheckboxesEnabling() 
+        {
+            AllowLowerCaseLetters.IsChecked= false;
+            AllowUpperCaseLetters.IsChecked = false;
+            AllowNumbers.IsChecked = false;
+            AllowSpecialSymbols.IsChecked = false;
+
+            AllowLowerCaseLetters.IsEnabled = !AllowLowerCaseLetters.IsEnabled;
+            AllowUpperCaseLetters.IsEnabled = !AllowUpperCaseLetters.IsEnabled;
+            AllowNumbers.IsEnabled = !AllowNumbers.IsEnabled;
+            AllowSpecialSymbols.IsEnabled = !AllowSpecialSymbols.IsEnabled;
+        }
+
+
 
         private void Window_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
@@ -235,14 +251,36 @@ namespace ClickSpeedTest
 
         private void tbString_TextChanged(object sender, TextChangedEventArgs e)
         {
+            if(tbString.Text.Length > 0)
             DisplayCorrectButton();
-            
         }
 
-        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        private void ChangeModeButton_Click(object sender, RoutedEventArgs e)
         {
-            if (e.Key == Key.Space)
-                MessageBox.Show("You are daun");
+            if (lbMode.Content.ToString() == "Text")
+            {
+                lbMode.Content = "Constructor";
+            }
+            else if (lbMode.Content.ToString() == "Constructor")
+            {
+                lbMode.Content = "Text";
+                LoadTextTotbString();
+            }
+
+            ChangeCheckboxesEnabling();
+        }
+
+        private void LoadTextTotbString()
+        {
+            DirectoryInfo curDir = new DirectoryInfo(Directory.GetCurrentDirectory());
+            string path = curDir.Parent.Parent.Parent.FullName + @"/Texts";
+            var files = Directory.GetFiles(path);
+
+            Random random= new Random();
+            
+            using(FileStream fs = new FileStream(files[random.Next(0, files.Length)], FileMode.Open))
+                using(StreamReader sr = new StreamReader(fs))
+                tbString.Text = sr.ReadToEnd();
         }
     }
 }

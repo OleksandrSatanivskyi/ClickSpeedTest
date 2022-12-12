@@ -9,10 +9,9 @@
         Height="900"
         Width="1400"
         WindowStartupLocation="CenterScreen"
-        PreviewTextInput="Window_PreviewTextInput"
-        PreviewKeyDown="Window_PreviewKeyDown">
+        PreviewTextInput="Window_PreviewTextInput">
+        <!--PreviewKeyDown="Window_PreviewKeyDown"-->
     <Grid >
-
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                 <GradientStop Color="#F0EB36" Offset="0.0"/>
@@ -31,7 +30,6 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Border Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="3">
-
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="233*"/>
@@ -52,7 +50,7 @@
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button FontSize="30" FontFamily="Bahnschrift SemiBold" Width="200" Background="#FF2AAEE6" Grid.Row="1" Content="Change mode" Margin="10" HorizontalAlignment="Left">
+                        <Button FontSize="30" FontFamily="Bahnschrift SemiBold" Width="200" Background="#FF2AAEE6" Grid.Row="1" Content="Change mode" Margin="10" HorizontalAlignment="Left" Click="ChangeModeButton_Click">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="10"/>
@@ -64,12 +62,14 @@
                 <Border Grid.Column="1" Margin="5,5,5,5" Grid.ColumnSpan="2">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.5*"/>
-                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Content="Mode:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,0" FontSize="45" FontFamily="Bahnschrift SemiBold"/>
-                        <Label Grid.Column="1" Content="Text" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" FontSize="45" FontFamily="Bahnschrift SemiBold"/>
+                        <WrapPanel Orientation="Vertical">
+                            <Label Grid.Column="0" Content="Mode:" FontSize="45" FontFamily="Bahnschrift SemiBold"/>
+                            <Label Name="lbMode"  Grid.Column="0" Content="Text" Margin="5" FontSize="45" FontFamily="Bahnschrift SemiBold"/>
+                        </WrapPanel>
+                        
                         <Border Grid.Column="3">
                             <Grid>
                                 <Grid.RowDefinitions>
