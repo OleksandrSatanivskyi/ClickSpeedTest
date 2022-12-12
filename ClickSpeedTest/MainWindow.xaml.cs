@@ -78,7 +78,7 @@ namespace ClickSpeedTest
                 else
                 {
                     MistakesCount++;
-                    lbPrecision.Content = (Math.Round(100 - (double)((double)MistakesCount * (double)100 / (double)tbString.Text.Length), 2)).ToString() + '%';
+                    lbPrecision.Content = (Math.Round(100 - (double)((double)MistakesCount * (double)100 / (double)EnteredSymbolsCount), 2)).ToString() + '%';
                 }
             }  
         }
@@ -198,6 +198,12 @@ namespace ClickSpeedTest
             }
         }
 
+        private bool CurrentSymbolIsLetterInLowerCase()
+            => (int)tbString.Text[0] >= 97 && (int)tbString.Text[0] <= 122;
+
+        private bool CurrentSymbolIsNumber()
+            => (int)tbString.Text[0] >= 48 && (int)tbString.Text[0] <= 57;
+
         private bool CurrentSymbolIsLetterInUpperCase()
             => (int)tbString.Text[0] >= 65 && (int)tbString.Text[0] <= 90;
 
@@ -214,18 +220,12 @@ namespace ClickSpeedTest
             tbString.Text[0] == '-' ||
             tbString.Text[0] == '`');
 
-        private bool CurrentSymbolIsLetterInLowerCase()
-           => (int)tbString.Text[0] >= 97 && (int)tbString.Text[0] <= 122;
-
         private void MakeCorrectButtonWhite(Button button)
         {
             ChangedButtonStartColor = button.Background;
             ChangedButton = button;
             button.Background = Brushes.White;
         }
-
-        private bool CurrentSymbolIsNumber() => (int)tbString.Text[0] >= 48 && (int)tbString.Text[0] <= 57;
-
  
         private void btStart_Click(object sender, RoutedEventArgs e)
         {
@@ -236,7 +236,8 @@ namespace ClickSpeedTest
                 MistakesCount = 0;
                 lbPrecision.Content = 100.ToString() + '%';
                 Timer.Stop();
-                new ResultWindow().ShowDialog();
+                ResultWindow resultWindow = new ResultWindow(lbSpeed.Content.ToString(), lbPrecision.Content.ToString().Remove(lbPrecision.Content.ToString().Length-1, 1));
+                resultWindow.ShowDialog();
             }
             else if(!TestIsStarted)
             {
@@ -307,13 +308,23 @@ namespace ClickSpeedTest
 
         private void CreateRandomSymbolsStringFortbString()
         {
-            if (SymbolCollection.Symbols.Length <=0)
+            if (SymbolCollection.Symbols == null || SymbolCollection.Symbols.Length <= 0)
                 return;
             Random random = new Random();
+            Random SpaceRandom = new Random();
             for (int i = 0; i < 200; i++)
             {
+                if (SpaceRandom.Next(0, 8) == 1)
+                    tbString.Text += ' ';
                 tbString.Text += SymbolCollection.GetRandomSymbol();
             }
+        }
+
+        private void Checkbox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            tbString.Text = "";
+
+            CheckBoxChanged(sender, e);
         }
     }
 }

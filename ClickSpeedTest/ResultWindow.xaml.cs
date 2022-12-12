@@ -19,9 +19,18 @@ namespace ClickSpeedTest
     /// </summary>
     public partial class ResultWindow : Window
     {
-        public ResultWindow()
+        public ResultWindow(string speed, string precision)
         {
             InitializeComponent();
+            lbSpeed.Content = speed;
+            lbPrecision.Content = precision;
         }
+
+        private void SetlbSpeed(string s)
+            => lbSpeed.Content = s;
+
+        private void SetlbPrecision(string s)
+            => lbPrecision.Content = s;
+
     }
 }
