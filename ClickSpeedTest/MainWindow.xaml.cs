@@ -272,6 +272,7 @@ namespace ClickSpeedTest
             }
 
             ChangeCheckboxesEnabling();
+            tbString.Text = "";
         }
 
         private void LoadTextTotbString()
@@ -306,7 +307,13 @@ namespace ClickSpeedTest
 
         private void CreateRandomSymbolsStringFortbString()
         {
-            throw new NotImplementedException();
+            if (SymbolCollection.Symbols.Length <=0)
+                return;
+            Random random = new Random();
+            for (int i = 0; i < 200; i++)
+            {
+                tbString.Text += SymbolCollection.GetRandomSymbol();
+            }
         }
     }
 }

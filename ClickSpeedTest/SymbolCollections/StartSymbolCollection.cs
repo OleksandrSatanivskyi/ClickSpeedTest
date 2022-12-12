@@ -11,7 +11,9 @@ namespace ClickSpeedTest.SymbolCollections
     {
         public override void CreateSymbols()
         {
-            Symbols = "";
+            //Symbols = "";
+
+           
         }
     }
 }
