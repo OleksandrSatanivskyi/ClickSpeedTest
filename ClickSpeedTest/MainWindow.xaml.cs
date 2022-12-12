@@ -24,7 +24,6 @@ namespace ClickSpeedTest
     /// </summary>
     public partial class MainWindow : Window
     {
-        //PreviewKeyDown="Window_PreviewKeyDown"
         private DispatcherTimer Timer { get; set; }
         private bool TestIsStarted => btStart.Content.ToString() != "Start";
         private Button ChangedButton { get; set; }
@@ -35,11 +34,13 @@ namespace ClickSpeedTest
         private int EnteredSymbolsCount { get; set; }
         private int Seconds { get; set; }
         private SymbolCollection SymbolCollection { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
             ShiftButtonStartColor = btShift.Background;
-            tbString.Text = "";
+            DirectoryInfo curDir = new DirectoryInfo(Directory.GetCurrentDirectory());
+            tbString.Text = File.ReadAllText(curDir.Parent.Parent.Parent.FullName + @"/Texts/Hancock.txt");
             SpecialSymbols = new Dictionary<char, string>();
             AddSpecialSymbolsToCollection();
             MistakesCount = 0;
