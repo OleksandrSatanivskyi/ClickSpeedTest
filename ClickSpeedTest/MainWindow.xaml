@@ -10,7 +10,7 @@
         Width="1400"
         WindowStartupLocation="CenterScreen"
         PreviewTextInput="Window_PreviewTextInput">
-        <!--PreviewKeyDown="Window_PreviewKeyDown"-->
+        
     <Grid >
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -78,22 +78,22 @@
                                     <RowDefinition/>
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
-                                <CheckBox Grid.Row="0" x:Name="AllowLowerCaseLetters" Content="Letter in lower case" FontSize="15">
+                                <CheckBox Grid.Row="0" x:Name="AllowLowerCaseLetters" Content="Letter in lower case" FontSize="15" Checked="CheckBoxChanged" Unchecked="CheckBoxChanged">
                                     <CheckBox.LayoutTransform>
                                         <ScaleTransform ScaleX="2" ScaleY="2" />
                                     </CheckBox.LayoutTransform>
                                 </CheckBox>
-                                <CheckBox Grid.Row="1" x:Name="AllowUpperCaseLetters" Content="Letter in upper case" FontSize="15">
+                                <CheckBox Grid.Row="1" x:Name="AllowUpperCaseLetters" Content="Letter in upper case" FontSize="15" Checked="CheckBoxChanged" Unchecked="CheckBoxChanged">
                                     <CheckBox.LayoutTransform>
                                         <ScaleTransform ScaleX="2" ScaleY="2" />
                                     </CheckBox.LayoutTransform>
                                 </CheckBox>
-                                <CheckBox Grid.Row="2" x:Name="AllowNumbers" Content="Numbers" FontSize="15">
+                                <CheckBox Grid.Row="2" x:Name="AllowNumbers" Content="Numbers" FontSize="15" Checked="CheckBoxChanged" Unchecked="CheckBoxChanged">
                                     <CheckBox.LayoutTransform>
                                         <ScaleTransform ScaleX="2" ScaleY="2" />
                                     </CheckBox.LayoutTransform>
                                 </CheckBox>
-                                <CheckBox Grid.Row="3" x:Name="AllowSpecialSymbols" Content="Special symbols" FontSize="15">
+                                <CheckBox Grid.Row="3" x:Name="AllowSpecialSymbols" Content="Special symbols" FontSize="15" Checked="CheckBoxChanged" Unchecked="CheckBoxChanged">
                                     <CheckBox.LayoutTransform>
                                         <ScaleTransform ScaleX="2" ScaleY="2" />
                                     </CheckBox.LayoutTransform>

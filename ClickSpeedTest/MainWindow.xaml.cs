@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using ClickSpeedTest.SymbolCollections;
+using SymbolCollections.SymbolCollections;
 
 namespace ClickSpeedTest
 {
@@ -22,6 +24,7 @@ namespace ClickSpeedTest
     /// </summary>
     public partial class MainWindow : Window
     {
+        //PreviewKeyDown="Window_PreviewKeyDown"
         private DispatcherTimer Timer { get; set; }
         private bool TestIsStarted => btStart.Content.ToString() != "Start";
         private Button ChangedButton { get; set; }
@@ -31,6 +34,7 @@ namespace ClickSpeedTest
         private int MistakesCount { get; set; }
         private int EnteredSymbolsCount { get; set; }
         private int Seconds { get; set; }
+        private SymbolCollection SymbolCollection { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -44,6 +48,7 @@ namespace ClickSpeedTest
             Timer.Tick += Timer_Tick;
             EnteredSymbolsCount = 0;
             ChangeCheckboxesEnabling();
+            SymbolCollection = new StartSymbolCollection();
         }
 
         private void ChangeCheckboxesEnabling() 
@@ -58,8 +63,6 @@ namespace ClickSpeedTest
             AllowNumbers.IsEnabled = !AllowNumbers.IsEnabled;
             AllowSpecialSymbols.IsEnabled = !AllowSpecialSymbols.IsEnabled;
         }
-
-
 
         private void Window_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
@@ -281,6 +284,28 @@ namespace ClickSpeedTest
             using(FileStream fs = new FileStream(files[random.Next(0, files.Length)], FileMode.Open))
                 using(StreamReader sr = new StreamReader(fs))
                 tbString.Text = sr.ReadToEnd();
+        }
+
+        private void CheckBoxChanged(object sender, RoutedEventArgs e)
+        {
+            SymbolCollection = new StartSymbolCollection();
+            if ((bool)AllowLowerCaseLetters.IsChecked)
+                SymbolCollection.SetPrimaryCollection(new LowerCaseEnglishLettersCollection());
+            if ((bool)AllowUpperCaseLetters.IsChecked)
+                SymbolCollection.SetPrimaryCollection(new UpperCaseEnglishLettersCollection());
+            if ((bool)AllowNumbers.IsChecked)
+                SymbolCollection.SetPrimaryCollection(new NumbersCollection());
+            if ((bool)AllowSpecialSymbols.IsChecked)
+                SymbolCollection.SetPrimaryCollection(new AdditionalSymbolsCollection());
+
+            SymbolCollection.CreateSymbols();
+
+            CreateRandomSymbolsStringFortbString();
+        }
+
+        private void CreateRandomSymbolsStringFortbString()
+        {
+            throw new NotImplementedException();
         }
     }
 }

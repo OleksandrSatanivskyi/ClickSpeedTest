@@ -1,17 +1,17 @@
-﻿using System;
+﻿using SymbolCollections.SymbolCollections;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SymbolCollections.SymbolCollections
+namespace ClickSpeedTest.SymbolCollections
 {
-    internal class NumbersCollection: SymbolCollection
+    class StartSymbolCollection : SymbolCollection
     {
         public override void CreateSymbols()
         {
-           
-            Symbols += "0123456789";
+            Symbols = "";
         }
     }
 }

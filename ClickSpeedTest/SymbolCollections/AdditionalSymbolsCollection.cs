@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Еуые.SymbolCollections
+namespace SymbolCollections.SymbolCollections
 {
     internal class AdditionalSymbolsCollection: SymbolCollection
     {
