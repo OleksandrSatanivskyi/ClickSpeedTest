@@ -260,7 +260,7 @@ namespace ClickSpeedTest
         private void Timer_Tick(object? sender, EventArgs e)
         {
            Seconds++;
-           lbSpeed.Content = (EnteredSymbolsCount / Seconds).ToString();
+           lbSpeed.Content = (EnteredSymbolsCount * 60 / Seconds).ToString();
         }
 
         private void tbString_TextChanged(object sender, TextChangedEventArgs e)
