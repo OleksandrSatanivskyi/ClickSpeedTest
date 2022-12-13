@@ -10,7 +10,8 @@
         Width="1400"
         WindowStartupLocation="CenterScreen"
         PreviewTextInput="Window_PreviewTextInput"
-        Icon="logo.ico">
+        Icon="logo.ico"
+        PreviewKeyDown="Window_PreviewKeyDown">
     <Grid >
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">

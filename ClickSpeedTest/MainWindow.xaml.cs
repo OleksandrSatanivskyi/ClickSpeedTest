@@ -34,13 +34,13 @@ namespace ClickSpeedTest
         private int EnteredSymbolsCount { get; set; }
         private int Seconds { get; set; }
         private SymbolCollection SymbolCollection { get; set; }
+        private bool SpaceIsClicked { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
             ShiftButtonStartColor = btShift.Background;
             DirectoryInfo curDir = new DirectoryInfo(Directory.GetCurrentDirectory());
-            tbString.Text = File.ReadAllText(curDir.Parent.Parent.Parent.FullName + @"/Texts/Hancock.txt");
             SpecialSymbols = new Dictionary<char, string>();
             AddSpecialSymbolsToCollection();
             MistakesCount = 0;
@@ -50,6 +50,7 @@ namespace ClickSpeedTest
             EnteredSymbolsCount = 0;
             ChangeCheckboxesEnabling();
             SymbolCollection = new StartSymbolCollection();
+            LoadTextTotbString();
         }
 
         private void ChangeCheckboxesEnabling() 
@@ -67,14 +68,18 @@ namespace ClickSpeedTest
 
         private void Window_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
+            if (tbString.Text.Length <= 0)
+            {
+                FinishTest();
+                return;
+            }    
             if (TestIsStarted)
             {
                 if (e.Text == tbString.Text[0].ToString())
                 {
                     tbString.Text = tbString.Text.Remove(0, 1);
                     EnteredSymbolsCount++;
-                }
-                    
+                }      
                 else
                 {
                     MistakesCount++;
@@ -229,15 +234,19 @@ namespace ClickSpeedTest
  
         private void btStart_Click(object sender, RoutedEventArgs e)
         {
+            if (SpaceIsClicked)
+            {
+                SpaceIsClicked = false;
+                return;
+            }
+
             if (TestIsStarted)
             {
-                btStart.Content = "Start";
-                btStart.Background = Brushes.Green;
-                MistakesCount = 0;
-                lbPrecision.Content = 100.ToString() + '%';
-                Timer.Stop();
-                ResultWindow resultWindow = new ResultWindow(lbSpeed.Content.ToString(), lbPrecision.Content.ToString().Remove(lbPrecision.Content.ToString().Length-1, 1));
-                resultWindow.ShowDialog();
+               FinishTest();
+                if (lbMode.Content.ToString() == "Constructor")
+                    CreateRandomSymbolsStringFortbString();
+                if (lbMode.Content.ToString() == "Constructor")
+                    LoadTextTotbString();
             }
             else if(!TestIsStarted)
             {
@@ -260,8 +269,30 @@ namespace ClickSpeedTest
             DisplayCorrectButton();
         }
 
+        private void FinishTest()
+        {
+            btStart.Content = "Start";
+            btStart.Background = Brushes.Green;
+            MistakesCount = 0;
+            lbPrecision.Content = 100.ToString() + '%';
+            Timer.Stop();
+            ResultWindow resultWindow = new ResultWindow(lbSpeed.Content.ToString(), lbPrecision.Content.ToString().Remove(lbPrecision.Content.ToString().Length - 1, 1));
+            resultWindow.ShowDialog();
+        }
+
         private void ChangeModeButton_Click(object sender, RoutedEventArgs e)
         {
+            if (SpaceIsClicked)
+            {
+                SpaceIsClicked = false;
+                return;
+            }
+
+            if (TestIsStarted)
+            {
+                FinishTest();
+            }
+
             if (lbMode.Content.ToString() == "Text")
             {
                 lbMode.Content = "Constructor";
@@ -325,6 +356,29 @@ namespace ClickSpeedTest
             tbString.Text = "";
 
             CheckBoxChanged(sender, e);
+        }
+
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Space)
+            {
+                SpaceIsClicked = true;
+                if(tbString.Text[0] == ' ')
+                {
+                    tbString.Text = tbString.Text.Remove(0, 1);
+                    EnteredSymbolsCount++;
+                }
+                else
+                {
+                    if (!TestIsStarted)
+                        return;
+                    MistakesCount++;
+                    lbPrecision.Content = (Math.Round(100 - (double)((double)MistakesCount * (double)100 / (double)EnteredSymbolsCount), 2)).ToString() + '%';
+                }
+
+
+            }
+                
         }
     }
 }
