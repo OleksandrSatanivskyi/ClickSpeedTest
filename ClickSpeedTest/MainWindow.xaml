@@ -443,7 +443,7 @@
                             </Style>
                         </Button.Resources>
                     </Button>
-                    <Button FontSize="30" FontFamily="Arial" Background="#FF9AD3FA" Grid.Column="13" Content="/" Margin="2">
+                    <Button FontSize="30" FontFamily="Arial" Background="#FF9AD3FA" Grid.Column="13" Content="\" Margin="2,2,2,0" Height="71" VerticalAlignment="Top">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="10"/>

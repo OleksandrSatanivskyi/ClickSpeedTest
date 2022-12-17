@@ -274,10 +274,10 @@ namespace ClickSpeedTest
             btStart.Content = "Start";
             btStart.Background = Brushes.Green;
             MistakesCount = 0;
-            lbPrecision.Content = 100.ToString() + '%';
             Timer.Stop();
             ResultWindow resultWindow = new ResultWindow(lbSpeed.Content.ToString(), lbPrecision.Content.ToString().Remove(lbPrecision.Content.ToString().Length - 1, 1));
             resultWindow.ShowDialog();
+            lbPrecision.Content = 100.ToString() + '%';
         }
 
         private void ChangeModeButton_Click(object sender, RoutedEventArgs e)
@@ -296,6 +296,7 @@ namespace ClickSpeedTest
             if (lbMode.Content.ToString() == "Text")
             {
                 lbMode.Content = "Constructor";
+                tbString.Text = "";
             }
             else if (lbMode.Content.ToString() == "Constructor")
             {
@@ -304,17 +305,14 @@ namespace ClickSpeedTest
             }
 
             ChangeCheckboxesEnabling();
-            tbString.Text = "";
         }
 
+        Random random = new Random();
         private void LoadTextTotbString()
         {
             DirectoryInfo curDir = new DirectoryInfo(Directory.GetCurrentDirectory());
             string path = curDir.Parent.Parent.Parent.FullName + @"/Texts";
-            var files = Directory.GetFiles(path);
-
-            Random random= new Random();
-            
+            var files = Directory.GetFiles(path);          
             using(FileStream fs = new FileStream(files[random.Next(0, files.Length)], FileMode.Open))
                 using(StreamReader sr = new StreamReader(fs))
                 tbString.Text = sr.ReadToEnd();
